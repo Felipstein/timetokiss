@@ -1,0 +1,13 @@
+{
+  "name": "timetokiss",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "website": "https://github.com/Felipstein/timetokiss",
+  "author": "Felipstein",
+  "license": "ISC"
+}
