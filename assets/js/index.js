@@ -15,8 +15,6 @@ function handleSubmit(event) {
     const p4Value = getInputValue('p4')
     const p5Value = getInputValue('p5')
 
-    console.log(p1Values)
-
     const moodValue = mood(p1(p1Values), p2(p2Value), p3(p3Value), p4(p4Value), p5(p5Value))
 
     console.log(`Aprovação de ${moodValue}%`)
