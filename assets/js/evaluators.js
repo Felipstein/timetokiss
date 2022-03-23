@@ -76,7 +76,7 @@ function removeEvaluator(id) {
 function addEvaluatorHTML() {
     return `
         <div class="input-container">
-            <input type="number" class="p1_styler" id="p1" placeholder="" />
+            <input type="number" class="p1_styler" id="p1" placeholder="Nota média do 1º avaliador" />
             <button class="button_evaluator" id="add_evaluator"><i class="fa-solid fa-plus"></i></button>
         </div>
     `
