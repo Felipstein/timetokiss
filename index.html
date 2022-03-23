@@ -5,10 +5,97 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>timetokiss</title>
+
+    <script src="https://kit.fontawesome.com/0c13b055a7.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="assets/styles/style.css">
+
 </head>
 <body>
+
+    <main>
+        <header>
+            <h1 id="logo" class="gradient">
+                É hora do beijo?
+                <i class="fa-solid fa-fire-flame-curved"></i>
+            </h1>
+            <h3>
+                Descubra se é o momento ideal para lascar aquele beijão no boy ou na girl! Veja a fórmula usada
+                <a href="./assets/Formula_para_calcular_o_clima_perfeito_para_um_beijo.pdf" target="_blank">clicando aqui!</a>
+            </h3>
+        </header>
+        <div class="form-and-result">
+            <div class="form-container">
+                <form id="form">
+                    <div class="form-group" id="p1-group">
+                        <label for="p1">
+                            Índice de beleza
+                            <i class="fa-solid fa-circle-question tooltip">
+                                <span class="tooltiptext">
+                                    Expressa a elegância de um ambiente dada por cada avaliador. A média deve ser entre -∞ e 100.
+                                </span>
+                            </i>
+                        </label>
+                        <div id="evaluators">
+                            <div class="input-container">
+                                <input type="number" class="p1_styler" id="p1" placeholder="" />
+                                <button class="button_evaluator" id="add_evaluator"><i class="fa-solid fa-plus"></i></button>
+                            </div>
+                            <div class="input-container">
+                                <input type="number" class="p1_styler" id="p1_0" placeholder="" />
+                                <button class="button_evaluator" id="remove_evaluator_0"><i class="fa-solid fa-minus"></i></button>
+                            </div>
+                            <div class="input-container">
+                                <input type="number" class="p1_styler" id="p1_1" placeholder="" />
+                                <button class="button_evaluator" id="remove_evaluator_1"><i class="fa-solid fa-minus"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="p2">
+                            Número de terceiros
+                            <i class="fa-solid fa-circle-question tooltip">
+                                <span class="tooltiptext">Número de pessoas prestando atenção no casal.</span>
+                            </i>
+                        </label>
+                        <input type="number" id="p2" placeholder="" min="0"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="p3">
+                            Índice de iluminação
+                            <i class="fa-solid fa-circle-question tooltip">
+                                <span class="tooltiptext">Grau de iluminação. O valor deve ser maior que zero.</span>
+                            </i>
+                        </label>
+                        <input type="number" id="p3" placeholder="Em lux" min="1"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="p4">
+                            Índice de quietude
+                            <i class="fa-solid fa-circle-question tooltip">
+                                <span class="tooltiptext">Nível de ruído na área.</span>
+                            </i>
+                        </label>
+                        <input type="number" id="p4" placeholder="Em dB" />
+                    </div>
+                    <div class="form-group">
+                        <label for="p5">
+                            Um olhar para o outro
+                            <i class="fa-solid fa-circle-question tooltip">
+                                <span class="tooltiptext">Número de segundos olhando um para o outro em silêncio.</span>
+                            </i>
+                        </label>
+                        <input type="number" id="p5" placeholder="Em segundos" min="0"/>
+                    </div>
     
-    
+                    <button type="submit" id="calc">Calcular</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="assets/js/index.js" type="module"></script>
+    <script src="assets/js/evaluators.js" type="module"></script>
+    <script src="assets/js/audio.js" type="text/javascript"></script>
 
 </body>
 </html>
