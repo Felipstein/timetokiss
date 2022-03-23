@@ -76,10 +76,10 @@ function removeEvaluator(id) {
 function addEvaluatorHTML() {
     return `
         <div class="input-container">
-            <input type="number" class="p1_styler" id="p1" placeholder="Nota média do 1º avaliador" />
+            <input type="number" class="p1_styler" id="p1" placeholder="" />
             <button class="button_evaluator" id="add_evaluator"><i class="fa-solid fa-plus"></i></button>
         </div>
     `
 }
 
-export default () => [document.getElementById('p1'), ...evaluators.map(evaluator => document.getElementById(evaluator.id))]
+export default () => [document.getElementById('p1'), ...evaluators.map(evaluator => document.getElementById(evaluator.id)).filter(evaluator => evaluator != undefined)]

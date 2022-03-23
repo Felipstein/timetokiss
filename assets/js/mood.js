@@ -1,4 +1,4 @@
-export function p1(...a) {
+export function p1(a) {
     return a.reduce((total, value) => total + value) / (5 * a.length)
 }
 

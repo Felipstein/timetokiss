@@ -77,7 +77,6 @@ a:hover {
     display: flex;
     flex-direction: column;
     gap: 30px;
-    width: 80%;
     justify-content: center;
     align-content: center;
     margin: auto;
@@ -92,6 +91,7 @@ a:hover {
 .form-group label {
     color: #9b9b9b;
     font-weight: bolder;
+    height: 25px;
 }
 
 .form-group label i {
@@ -181,7 +181,9 @@ a:hover {
     box-shadow: 1px 1px 20px rgb(155, 59, 146);
 }
 
-.tooltip .tooltiptext {
+.tooltiptext {
+    position: absolute;
+    top: 0;
     visibility: hidden;
     padding-left: 15px;
     position: relative;
@@ -198,6 +200,69 @@ a:hover {
     line-height: 20px;
 }
 
-.tooltip:hover .tooltiptext {
+.tooltip:hover ~ .tooltiptext, .tooltiptext:hover {
     visibility: visible;
+}
+
+.form-and-result {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 60px;
+}
+
+#separator {
+    background-image: linear-gradient(#444, #666, #444);
+    width: 3px;
+    border-radius: 50%;
+    height: 500px;
+}
+
+.result-container {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.result-container h2 {
+    font-size: 2.6em;
+    user-select: none;
+    color: #aaa;
+    text-shadow: 1px 1px 10px #00000075;
+}
+
+.result-content {
+    width: 100%;
+    min-height: 300px;
+    background-color: #222;
+    border-radius: 45px;
+    box-shadow: 1px 1px 10px #111;
+    transition-property: box-shadow border-color;
+    transition: 0.15s ease-in-out;
+    border: 1px solid transparent;
+    padding: 30px 25px;
+    text-align: center;
+}
+
+.result-content:hover {
+    box-shadow: 1px 1px 20px #9b3b9285;
+    border-color: #f22d32;
+}
+
+.result-content h1 {
+    font-family: 'Fredoka';
+    color: #fc8d4c;
+    font-size: 2.6em;
+    text-shadow: 1px 1px 10px;
+}
+
+.result-content h1 strong {
+    font-size: 6em;
+}
+
+.result-content h1 span {
+    position: relative;
+    bottom: 78px;
 }
