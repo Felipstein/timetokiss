@@ -3,7 +3,9 @@ const audio = new Audio('../assets/sounds/beijinho.mp3')
 
 document.getElementById('logo').addEventListener('click', () => {
     
-    if(audio.played.length > 0) {
+    console.log(audio.currentTime)
+
+    if(audio.played.length > 0 && audio.currentTime < 2.304) {
         audio.currentTime = 0.2
     } else {
         audio.play()
