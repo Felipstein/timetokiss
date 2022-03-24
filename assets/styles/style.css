@@ -266,3 +266,10 @@ a:hover {
     position: relative;
     bottom: 78px;
 }
+
+.result-content h1 .less {
+    position: relative;
+    bottom: 23px;
+    right: 13px;
+    font-size: 0.8em;
+}

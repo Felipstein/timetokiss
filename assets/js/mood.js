@@ -12,6 +12,7 @@ export function p3(x) {
 
 export function p4(x) {
     let t
+    
     if(0 <= x && x < 20) {
         t = 100
     } else if(20 <= x && x < 70) {
