@@ -23,13 +23,19 @@ evaluatorsDOM.childNodes.forEach(child => {  // load evaluators placed in html
     }
 })
 
-function handleAddEvaluator() {
+function handleAddEvaluator(event) {
     const id = sequence.id
     const evaluator = buildEvaluator(id)
     evaluators[id] = evaluator
 
-    evaluatorsDOM.appendChild(evaluator.createElement())
+    const element = evaluator.createElement()
+
+    evaluatorsDOM.appendChild(element)
     document.getElementById(evaluator.buttonId).addEventListener('click', evaluator.handleRemoveEvaluator)
+
+    if(event.pointerId === -1) {
+        document.getElementById(evaluator.id).focus()
+    }
 }
 
 function buildEvaluator(id) {
