@@ -153,7 +153,8 @@ a:hover {
     transition: border-color 0.2s ease-in-out;
 }
 
-.button_evaluator:hover { border-color: #9b3b92 }
+.button_evaluator:hover,
+.button_evaluator:focus { border-color: #9b3b92 }
 
 .button_evaluator:active {
     border-color: #9b3b92;

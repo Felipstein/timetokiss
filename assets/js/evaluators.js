@@ -1,3 +1,4 @@
+const evaluatorsDOM = document.getElementById('evaluators')
 const evaluators = []
 
 const sequence = {
@@ -10,31 +11,25 @@ const sequence = {
     }
 }
 
-document.getElementById('evaluators').childNodes.forEach(child => {  // load evaluators placed in html
+evaluatorsDOM.childNodes.forEach(child => {  // load evaluators placed in html
+    document.getElementById('add_evaluator').addEventListener('click', handleAddEvaluator)
     if(child.classList && child.classList.contains('input-container')) {
         const id = child.childNodes[1].id.substring(3)
         if(id) {
-            evaluators[id] = buildEvaluator(id)
+            const evaluator = buildEvaluator(id)
+            evaluators[id] = evaluator
+            document.getElementById(evaluator.buttonId).addEventListener('click', evaluator.handleRemoveEvaluator)
         }
     }
 })
-
-function addEventsListener() {
-    document.getElementById('add_evaluator').addEventListener('click', handleAddEvaluator)
-    evaluators.forEach(evaluator => {
-        document.getElementById(evaluator.buttonId).addEventListener('click', evaluator.handleRemoveEvaluator)
-    })
-}
-
-addEventsListener()
 
 function handleAddEvaluator() {
     const id = sequence.id
     const evaluator = buildEvaluator(id)
     evaluators[id] = evaluator
 
-    document.getElementById('evaluators').appendChild(evaluator.createElement())
-    addEventsListener()
+    evaluatorsDOM.appendChild(evaluator.createElement())
+    document.getElementById(evaluator.buttonId).addEventListener('click', evaluator.handleRemoveEvaluator)
 }
 
 function buildEvaluator(id) {
@@ -42,6 +37,9 @@ function buildEvaluator(id) {
         id: `p1_${id}`,
         buttonId: `remove_evaluator_${id}`,
         idOfGroup: `p1_${id}-group`,
+        handleRemoveEvaluator() {
+            removeEvaluator(id)
+        },
         createElement() {
             const evaluator = document.createElement('div')
             evaluator.id = this.idOfGroup
@@ -51,9 +49,6 @@ function buildEvaluator(id) {
                 <button class="button_evaluator" id="${this.buttonId}"><i class="fa-solid fa-minus"></i></button>
             `
             return evaluator
-        },
-        handleRemoveEvaluator() {
-            removeEvaluator(id)
         }
     }
     return evaluator
@@ -66,8 +61,6 @@ function removeEvaluator(id) {
     document.getElementById(evaluator.idOfGroup).remove()
     
     delete evaluators[id]
-
-    addEventsListener()
 }
 
 export default () => [document.getElementById('p1'), ...evaluators.map(evaluator => document.getElementById(evaluator.id)).filter(evaluator => evaluator != undefined)]
