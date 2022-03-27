@@ -30,25 +30,28 @@ addEventsListener()
 
 function handleAddEvaluator() {
     const id = sequence.id
-
     const evaluator = buildEvaluator(id)
-
     evaluators[id] = evaluator
-    document.getElementById('evaluators').innerHTML += evaluator.html
+
+    document.getElementById('evaluators').appendChild(evaluator.createElement())
     addEventsListener()
 }
 
 function buildEvaluator(id) {
     const evaluator = {
-        justId: id,
         id: `p1_${id}`,
         buttonId: `remove_evaluator_${id}`,
-        html: `
-            <div class="input-container">
-                <input type="number" class="p1_styler" id="p1_${id}" placeholder="" />
-                <button class="button_evaluator" id="remove_evaluator_${id}"><i class="fa-solid fa-minus"></i></button>
-            </div>
-        `,
+        idOfGroup: `p1_${id}-group`,
+        createElement() {
+            const evaluator = document.createElement('div')
+            evaluator.id = this.idOfGroup
+            evaluator.classList.add('input-container')
+            evaluator.innerHTML = `
+                <input type="number" class="p1_styler" id="${this.id}" placeholder="" max="100" />
+                <button class="button_evaluator" id="${this.buttonId}"><i class="fa-solid fa-minus"></i></button>
+            `
+            return evaluator
+        },
         handleRemoveEvaluator() {
             removeEvaluator(id)
         }
@@ -60,26 +63,11 @@ function removeEvaluator(id) {
     const evaluator = evaluators[id]
 
     document.getElementById(evaluator.buttonId).removeEventListener('click', evaluator.handleRemoveEvaluator)
-
+    document.getElementById(evaluator.idOfGroup).remove()
+    
     delete evaluators[id]
 
-    const evaluatorHTML = document.getElementById('evaluators')
-    evaluatorHTML.innerHTML = addEvaluatorHTML()
-
-    evaluators.forEach(evaluator => {
-        evaluatorHTML.innerHTML += evaluator.html
-    })
-
     addEventsListener()
-}
-
-function addEvaluatorHTML() {
-    return `
-        <div class="input-container">
-            <input type="number" class="p1_styler" id="p1" placeholder="" />
-            <button class="button_evaluator" id="add_evaluator"><i class="fa-solid fa-plus"></i></button>
-        </div>
-    `
 }
 
 export default () => [document.getElementById('p1'), ...evaluators.map(evaluator => document.getElementById(evaluator.id)).filter(evaluator => evaluator != undefined)]

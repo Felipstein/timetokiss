@@ -1,5 +1,17 @@
+<!--
+
+    - Adicionar animação quando adiciona um avaliador
+    - Corrigir o focus dos avaliadores que vão para o botão de adicionar ou remover
+    - Adicionar sistema anti-valores-falsos (e avisar!)
+    - Responsividade
+    - Animação de esperando resultado
+    - "PDF não é meu!! :)"
+    - Botão copiar resultado
+
+-->
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -37,7 +49,7 @@
                         </label>
                         <div id="evaluators">
                             <div class="input-container">
-                                <input type="number" class="p1_styler" id="p1" placeholder="" />
+                                <input type="number" class="p1_styler" id="p1" placeholder="" max="100" />
                                 <button class="button_evaluator" id="add_evaluator"><i class="fa-solid fa-plus"></i></button>
                             </div>
                         </div>
@@ -85,6 +97,9 @@
                     <h1 id="result">
                         <strong>45</strong><span>%</span>
                     </h1>
+                    <div id="extra-result">
+                        <p>Aprovação exata de <strong>45%</strong></p>
+                    </div>
                 </div>
             </div>
         </div>

@@ -17,7 +17,6 @@ function handleSubmit(event) {
 
     const moodValue = mood(p1(p1Values), p2(p2Value), p3(p3Value), p4(p4Value), p5(p5Value))
 
-    console.log(`Aprovação de ${moodValue}%`)
     document.dispatchEvent(new CustomEvent('success_submit', { detail: moodValue }))
 }
 
@@ -29,8 +28,9 @@ function getInputValue(id) {
 document.addEventListener('success_submit', ({ detail }) => {
 
     if(detail < 0 || !detail) {
+        setFontColor('#500')
         document.getElementById('result').innerHTML = '<strong><span class="less">\<</span>0</strong><span>%</span>'
-        setFontColor('#200')
+        document.getElementById('extra-result').innerHTML = `<p>Aprovação exata de <strong>${Number(detail.toFixed(4))}%</strong></p>`
         return
     } else if(detail >= 0 && detail <= 15) {
         setFontColor('darkred')
@@ -53,6 +53,7 @@ document.addEventListener('success_submit', ({ detail }) => {
     }
     
     document.getElementById('result').innerHTML = `<strong>${parseInt(detail)}</strong><span>%</span>`
+    document.getElementById('extra-result').innerHTML = `<p>Aprovação exata de <strong>${Number(detail.toFixed(4))}%</strong></p>`
 })
 
 function setFontColor(color) {

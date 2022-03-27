@@ -273,3 +273,12 @@ a:hover {
     right: 13px;
     font-size: 0.8em;
 }
+
+#extra-result p {
+    font-size: 0.80em;
+    color: #666;
+}
+
+#extra-result p strong {
+    color: #777;
+}
