@@ -142,7 +142,7 @@ a:hover {
 }
 
 .button_evaluator {
-    width: 50px;
+    width: 60px;
     height: 50px;
     border: 1px solid transparent;
     border-radius: 5px;
@@ -153,14 +153,18 @@ a:hover {
     transition: border-color 0.2s ease-in-out;
 }
 
+.button_evaluator i {
+    font-size: 1.25em;
+}
+
 .button_evaluator:hover,
 .button_evaluator:focus { border-color: #9b3b92 }
 
 .button_evaluator:active {
-    border-color: #9b3b92;
-    background-color: #2b2b2b;
-    color: #bb44af;
-    box-shadow: 0px 0px 15px #c267b9;
+    box-shadow: 0px 0px 15px #c267b977;
+    background-color: #9b3b92;
+    border-color: white;
+    color: white;
 }
 
 .form-container #calc {
